@@ -27,4 +27,15 @@ export default class UserRepositoryMemory implements UserRepositoryInterface {
         if (!user) throw new Error("User not foud");
         return user;
     }
+
+    async getAll(): Promise<User[]> {
+        return this.users;
+    }
+
+    async update(user: User): Promise<User> {
+        const index = this.users.findIndex(existingUser => existingUser.id === user.id);
+        if (index === -1) throw new Error("User not found");
+        this.users[index] = user;
+        return user;
+    }
 }

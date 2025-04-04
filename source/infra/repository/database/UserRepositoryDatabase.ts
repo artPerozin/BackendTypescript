@@ -24,5 +24,15 @@ export default class UserRepositoryDatabase implements UserRepositoryInterface {
         const result = await this.connection.execute("select id, email, password from public.user where email = $1", [email]);
         if (result.length === 0) return null;
         return new User(result[0].id, result[0].email, result[0].password);
-    }   
+    }
+
+    async getAll(): Promise<User[]> {
+        const result = await this.connection.execute("select id, email, password from public.user");
+        return result.map((user: any) => new User(user.id, user.email, user.password));
+    }
+
+    async update(user: User): Promise<User> {
+        await this.connection.execute("update public.user set email = $1, password = $2 where id = $3", [user.email, user.password, user.id]);
+        return user;
+    }
 }
