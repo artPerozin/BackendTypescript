@@ -1,5 +1,5 @@
 import express from "express";
-import Auth from "./middleware/Auth";
+import Auth from "./Middleware/Auth";
 import Http from "./Http";
 import HttpMethods from "./HttpMethods";
 

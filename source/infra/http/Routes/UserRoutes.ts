@@ -1,4 +1,4 @@
-import RepositoryFactory from "../../../domain/repository/RepositoryFactory";
+import RepositoryFactory from "../../../domain/Interfaces/RepositoryFactoryInterface";
 import UserController from "../../controller/UserController";
 import Http from "../Http";
 import ModelRoutes from "./ModelRoutes";

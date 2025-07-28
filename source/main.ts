@@ -15,6 +15,7 @@ const connection = new PostgreSQLConnection({
     host: process.env.DB_HOST ?? '',
     port: process.env.DB_PORT ?? ''
 });
+
 const repositoryFactory = new DatabaseRepositoryFactory(connection);
 const auth = new ExpressAuth(repositoryFactory);
 const http = new ExpressHttp(auth);
