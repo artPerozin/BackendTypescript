@@ -18,13 +18,13 @@ export default class UserRepositoryMemory implements UserRepositoryInterface {
 
     async findById(id: string): Promise<User | null> {
         const user = this.users.find(user => user.id === id);
-        if (!user) throw new Error("User not foud");
+        if (!user) throw new Error("User not found");
         return user;
     }
     
     async findByEmail(email: string): Promise<User> {
         const user = this.users.find(user => user.email === email);
-        if (!user) throw new Error("User not foud");
+        if (!user) throw new Error("User not found");
         return user;
     }
 
